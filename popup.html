@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <title>TheCodingLoveRandom</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css"></link>
+	<style>
+		body{
+			background-color:#FAFAFA;
+		}
+		.btn{
+			margin-bottom:0.5em;
+		}
+	</style>
+  </head>
+  <body>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h4>TheCodingLoveRandom</h4>
+			</div>
+		</div>
+		<hr/>
+		<div class="row">
+			<div class="col-xs-12">
+				Time between reloads:<br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-9">				
+				<input id="timeSlider" type="range" min="10" value="10" max="120" step="10" list="ticks">
+				<datalist id="ticks">
+					<option>10</option>
+					<option>30</option>
+					<option>60</option>
+					<option>90</option>
+					<option>120</option>
+				</datalist>
+			</div>
+			<div class="col-xs-3">
+				<div id="actualSliderValue">10s</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				Size of the picture:<br>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<label class="radio-inline">
+					<input type="radio" name="imgSize" value="s">Small
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="imgSize" value="m" checked>Medium
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="imgSize" value="b">Big
+				</label>
+			</div>
+		</div>
+		<hr/>
+		<div class="row">
+			<div class="col-xs-12">
+				<input id="reloadBtn" type="button" class="btn btn-success btn-block" value="Reload content"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<input id="openBtn" type="button" class="btn btn-info btn-block" value="Open TCL Random"/>
+			</div>
+		</div>
+	</div>
+  </body>
+  <footer>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="popup.js"></script>
+  </footer>
+</html>
+
