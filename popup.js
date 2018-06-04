@@ -1,4 +1,4 @@
-var locationUrl = "http://thecodinglove.com/random";
+var locationUrl = "https://thecodinglove.com/when-the-sales-guy-asks-me-to-smile-in-front-of-the-clients";
 var initReloadTime = 30;
 var initImgSize = 'm';
 
@@ -13,12 +13,12 @@ function sendReloadRequest(type){
 function saveValue(){
 	var sliderValue = $('#timeSlider').val();
 	chrome.storage.sync.set({ TCLRefreshTime: sliderValue});
-	$('#actualSliderValue').html(sliderValue+'s');
+	$('#actualSliderValue').html(sliderValue+'m');
 }
 
 function saveSize(){
 	chrome.storage.sync.set({ TCLImgSize: this.value});
-	sendReloadRequest(1);
+	sendReloadRequest(0);
 }
 
 function initialize(){
@@ -31,7 +31,7 @@ function initialize(){
 			$('#timeSlider').val(initReloadTime);
 		}else{
 			$('#timeSlider').val(actualValue);
-			$('#actualSliderValue').html(actualValue+'s');
+			$('#actualSliderValue').html(actualValue+'m');
 		}
 		
 		if(actualSize==null){
@@ -48,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	initialize();
 	
 	$('#timeSlider').on("input", saveValue);	
-	$('#timeSlider').on("change", function(){sendReloadRequest(1);});
+	$('#timeSlider').on("change", function(){sendReloadRequest(0);});
 	$('#openBtn').on("click", function(){chrome.tabs.create({ url: locationUrl });});
-	$('#reloadBtn').on("click", function(){sendReloadRequest(0);});
+	$('#reloadBtn').on("click", function(){sendReloadRequest(1);});
 	$('input[name=imgSize]').on("click", saveSize);
 });
 

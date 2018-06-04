@@ -12,7 +12,8 @@
 	"content_scripts": [
 	  {
 		"matches": [
-		  "http://thecodinglove.com/post/*"
+			"https://thecodinglove.com/*",
+			"http://thecodinglove.com/*"
 		],
 		"js": ["jquery-3.2.1.min.js", "content.js", "popup.js"]
 	  }

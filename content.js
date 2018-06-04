@@ -1,14 +1,18 @@
-var locationUrl = "http://thecodinglove.com/random";
+var locationUrl = "https://thecodinglove.com/when-the-sales-guy-asks-me-to-smile-in-front-of-the-clients";
 
 function makeNewBody(){
-	var content = $('#post1');
-	$('body').html(content.html());
+	$(".social-share").remove()
+	$(".post-meta-info").remove()
+	var post = $('.blog-post');
+	var nav = $('.nav-link');
+	nav.css({display: "none"});
+	$('body').html($('<div>').append(nav).html() + post.html());
 }
 
 function changeApperance(value, size){
 	setImgSize(size);
-	$('.centre h3').replaceWith(function () {
-		return "<h1 style='padding-bottom:70px; padding-top:50px'>" + $(this).html() +" - "+ value+size +"</h1>";
+	$('.blog-post-title').replaceWith(function () {
+		return "<h1 style='padding-bottom:70px; padding-top:50px; text-align: center;'>" + $(this).html() + "</h1>";
 	});
 }
 
@@ -22,8 +26,7 @@ function setImgSize(size){
 		sizeVal=70;
 	}
 	
-	var img = $('img').detach();
-	img.appendTo('div.centre');
+ 	var img = $('img')
 	
 	var imgW = img.width();
 	var imgH = img.height();
@@ -31,25 +34,32 @@ function setImgSize(size){
 	var screenW = $(window).width();
 	
 	if (screenW-imgW<screenH-imgH){
-		$('img').attr('style','width:'+sizeVal+'%; height:auto;');
+		img.attr('style','width:'+sizeVal+'%; height:auto;');
 	}else{
-		$('img').attr('style','width:auto; height:'+sizeVal*screenH/100+'px;');
+		img.attr('style','width:auto; height:'+sizeVal*screenH/100+'px;');
 	}	
+
+	img.css({    
+		display: "block",
+		"margin-left": "auto",
+		"margin-right": "auto"
+	})
 }
 
 chrome.runtime.onMessage.addListener(
   function(request) {
 	if(request.reloadPage == 0){
-		window.location = locationUrl;
+		window.location.reload();
 	}else if(request.reloadPage == 1){
-		window.location.reload(false);
+		window.location.href = $(".nav-link").attr("href");
 	}	
  });
 
 chrome.storage.sync.get(['TCLRefreshTime', 'TCLImgSize'], function(data) {	
+	console.log("!!!init!!!")
 	var value = data.TCLRefreshTime==null?10:data.TCLRefreshTime;
 	var size = data.TCLImgSize==null?'m':data.TCLImgSize;
 	makeNewBody();
 	changeApperance(value, size);
-	setTimeout(function(){window.location = locationUrl;}, value*1000);
+	setTimeout(function(){window.location = locationUrl;}, value*1000*60);
 });
