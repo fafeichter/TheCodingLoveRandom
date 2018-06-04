@@ -1,5 +1,3 @@
-var locationUrl = "https://thecodinglove.com/when-the-sales-guy-asks-me-to-smile-in-front-of-the-clients";
-
 function makeNewBody(){
 	$(".social-share").remove()
 	$(".post-meta-info").remove()
@@ -56,10 +54,9 @@ chrome.runtime.onMessage.addListener(
  });
 
 chrome.storage.sync.get(['TCLRefreshTime', 'TCLImgSize'], function(data) {	
-	console.log("!!!init!!!")
 	var value = data.TCLRefreshTime==null?10:data.TCLRefreshTime;
 	var size = data.TCLImgSize==null?'m':data.TCLImgSize;
 	makeNewBody();
 	changeApperance(value, size);
-	setTimeout(function(){window.location = locationUrl;}, value*1000*60);
+	setTimeout(function(){window.location.href = $(".nav-link").attr("href");}, value*1000*60);
 });
