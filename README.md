@@ -1,20 +1,21 @@
 # TheCodingLoveRandom
-TheCodingLove random is just a fun-made Chrome extension that allows to watch in a pleasent way programing mems from the http://thecodinglove.com site. 
-It clean up the page, leaving only title and gif.  
 
-:exclamation: This extension is of non-commersial use and is made only for educational purpose
+TheCodingLoveRandom is just a fun-made Chrome Extension that allows you to watch coding memes
+from [TheCodingLove.com](https://thecodinglove.com/). It cleans up the page, leaving only title and gif.
 
 ## Options
-TheCodingLoveRandom gives following options one can set: 
-1. Time iterval for reloading gifs
-2. Size of the gifs on the page
-3. Reload button (that loads new gif)
-4. Open TCL button (which opens new tab in http://thecodinglove.com site)
+
+TheCodingLoveRandom gives you the following options:
+
+1. Set the time interval for automatically loading a new meme
+3. Manually load a new meme
+4. Open TheCodingLove.com in a new tab
 
 ## How to run this extension
+
 1. Download this repository as a zip
 2. Unzip the repository
-3. Open Chrome and go to 'chrome://extensions/'
-4. Check 'Developer mode' checkbox
-5. Load extension without package
+3. Open Chrome and go to [chrome://extensions/](chrome://extensions/)
+4. Check `Developer mode` checkbox
+5. `Load unpacked`
 6. Specify the path to the extension's folder

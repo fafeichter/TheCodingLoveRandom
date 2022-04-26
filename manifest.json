@@ -1,29 +1,31 @@
 {
-	"manifest_version": 2,
-	"name": "TheCodingLoveRandom()",
-	"description": "With this extension you can watch thecodinglove.com random posts on full screen. Choose the time interval of reloading new posts!",
-	"version": "1",
-	
-	"browser_action": {
+  "manifest_version": 3,
+  "name": "TheCodingLoveRandom",
+  "description": "TheCodingLoveRandom is just a fun-made Chrome Extension that allows you to watch coding memes from TheCodingLove.com.",
+  "version": "1.0",
+  "action": {
     "default_icon": "icon48.png",
     "default_popup": "popup.html"
-	},
-  
-	"content_scripts": [
-	  {
-		"matches": [
-			"https://thecodinglove.com/*",
-			"http://thecodinglove.com/*"
-		],
-		"js": ["jquery-3.2.1.min.js", "content.js", "popup.js"]
-	  }
-	],
-	
-	"permissions": [
-		"storage"
-	],
-	
-	"icons": { "16": "icon16.png",
-           "48": "icon48.png",
-          "128": "icon128.png" }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://thecodinglove.com/*",
+        "http://thecodinglove.com/*"
+      ],
+      "js": [
+        "jquery-3.2.1.min.js",
+        "content.js",
+        "popup.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }
